@@ -55,5 +55,22 @@
         "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
     </div>
+    <script type="text/javascript">
+     window.addEventListener('pageshow', function(event) {
+         console.log(event)
+         if (event.persisted) {
+             console.log('This page was restored from the bfcache.');
+         } else {
+             console.log('This page was loaded normally.');
+         }
+     });
+     window.addEventListener('pagehide', function(event) {
+         if (event.persisted === true) {
+             console.log('This page *might* be entering the bfcache.');
+         } else {
+             console.log('This page will unload normally and be discarded.');
+         }
+     });
+    </script>
 </body>
 </html>

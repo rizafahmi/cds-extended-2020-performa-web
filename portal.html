@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="id">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Portal</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <style type="text/css" media="screen">
+         form {
+             padding: 2em;
+             background-color: #c0ffee;
+         }
+         portal {
+             position:fixed;
+             width: 75%;
+             height: 80%;
+             opacity: 0;
+             box-shadow: 0 0 20px 10px #999;
+             /*   transform: scale(0.4); */
+                transform-origin: bottom left;
+                bottom: 20px;
+                left: 128px;
+             /*
+                animation-name: fade-in;
+                animation-duration: 1s;
+                animation-delay: 2s;
+                animation-fill-mode: forwards; */
+         }
+        </style>
+
+
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">
+            You are using an <strong>outdated</strong> browser. Please
+            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+            your experience.
+            </p>
+        <![endif]-->
+
+        <form>
+            <input type="text" name="url">
+            <button>Show me</button>
+        </form>
+        <script type="text/javascript">
+         const button = document.querySelector('button');
+         button.addEventListener('click', function(e) {
+             // portal.activate();
+         });
+        // BIKIN portfolio listing
+        // BIKIN picture in picture / podcast
+         const form = document.querySelector('form');
+         form.addEventListener('submit', function(event) {
+             event.preventDefault();
+
+             const url = document.querySelector('input').value;
+
+             portal = document.createElement('portal');
+             portal.src = url;
+             portal.style.opacity = 100;
+             document.body.append(portal);
+         });
+        </script>
+
+    </body>
+</html>
